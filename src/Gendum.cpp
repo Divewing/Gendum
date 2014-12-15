@@ -17,7 +17,10 @@ void display();
 // ----------------------------------------------------------
 double rotate_y=0;
 double rotate_x=0;
-
+double tangan_l=0;
+double tangan_r=0;
+double lengan_l=0;
+double lengan_r=0;
 
 void initGL() {
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 }; //parameter cahaya specular
@@ -390,8 +393,12 @@ void torso(){
 	 	glPopMatrix();
 }
 
-void arms(){
-	//Shoulder_Armor
+void arms(double tangan_l){
+//Left
+		glPushMatrix();
+		glTranslatef(0.0,+1.35,0.0);
+		glRotatef(lengan_l,1.0,0.0,0.0);
+		glTranslatef(0.0,-1.35,0.0);
 
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
@@ -402,16 +409,49 @@ void arms(){
 
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(-0.25,1.35,0.0);
-	 	glScalef(1.5,1.5,1.3);
+	 	glTranslatef(0.25,1.2,0.0);
+	 	glScalef(1.0,1.4,1.0);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
-	//Arms_Upper
+	 	glPushMatrix();
+	 	glColor3f(0.2, 0.2, 0.2);
+	 	glTranslatef(0.25,1.1,0.0);
+	 	glScalef(0.5,1.5,0.9);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(0.25,1.2,0.0);
-	 	glScalef(1.0,1.4,1.0);
+	 	glTranslatef(0.25,0.95,0.0);
+	 	glTranslatef(0.0,+0.1,0.0);
+	 	glRotatef(tangan_l,1.0,0.0,0.0);
+	 	glTranslatef(0.0,-0.1,0.0);
+	 	glScalef(1.0,2.5,1.0);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+
+	 	glPushMatrix();
+	 	glColor3f(1.0, 0.2, 0.4);
+	 	glTranslatef(0.25,0.8,0.0);
+	 	glTranslatef(0.0,+0.25,0.0);
+	 	glRotatef(tangan_l,1.0,0.0,0.0);
+	 	glTranslatef(0.0,-0.25,0.0);
+	 	glScalef(0.8,0.8,0.8);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+	 	glPopMatrix();
+
+//Right
+	 	glPushMatrix();
+	 	glTranslatef(0.0,+1.35,0.0);
+	 	glRotatef(lengan_r,1.0,0.0,0.0);
+	 	glTranslatef(0.0,-1.35,0.0);
+
+	 	glPushMatrix();
+	 	glColor3f(1.0, 1.0, 1.0);
+	 	glTranslatef(-0.25,1.35,0.0);
+	 	glScalef(1.5,1.5,1.3);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
@@ -422,49 +462,33 @@ void arms(){
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
-	//Arms_Joint
-	 	glPushMatrix();
-	 	glColor3f(0.2, 0.2, 0.2);
-	 	glTranslatef(0.25,1.1,0.0);
-	 	glScalef(0.5,0.5,0.9);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
-
 		glPushMatrix();
 		glColor3f(0.2, 0.2, 0.2);
 	 	glTranslatef(-0.25,1.1,0.0);
-	 	glScalef(0.5,0.5,0.9);
+	 	glScalef(0.5,1.5,0.9);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
-	//Arms_Lower
-	 	glPushMatrix();
-	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(0.25,0.95,0.0);
-	 	glScalef(1.0,2.5,1.0);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
 
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
 	 	glTranslatef(-0.25,0.95,0.0);
+	 	glTranslatef(0.0,+0.1,0.0);
+	 	glRotatef(tangan_r,1.0,0.0,0.0);
+	 	glTranslatef(0.0,-0.1,0.0);
 	 	glScalef(1.0,2.5,1.0);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
-
-	 //Hands
-	 	glPushMatrix();
-	 	glColor3f(1.0, 0.2, 0.4);
-	 	glTranslatef(0.25,0.8,0.0);
-	 	glScalef(0.8,0.8,0.8);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
 	 	glPushMatrix();
 	 	glColor3f(1.0, 0.2, 0.4);
 	 	glTranslatef(-0.25,0.8,0.0);
+	 	glTranslatef(0.0,+0.25,0.0);
+	 	glRotatef(tangan_r,1.0,0.0,0.0);
+	 	glTranslatef(0.0,-0.25,0.0);
 	 	glScalef(0.8,0.8,0.8);
 	 	glutSolidCube(0.1);
+	 	glPopMatrix();
 	 	glPopMatrix();
 }
 
@@ -511,7 +535,7 @@ feet();
 legs();
 hips();
 torso();
-arms();
+arms(tangan_l);
 head();
 
   glFlush();
@@ -543,6 +567,40 @@ void specialKeys( int key, int x, int y ) {
 
 }
 
+void keyboard(unsigned char key, int x, int y){
+	if(key=='q'){
+		tangan_l +=5;
+
+	}else if(key=='a'){
+		tangan_l -=5;
+	}else if(key=='r'){
+		tangan_r+=5;
+	}else if(key=='f'){
+		tangan_r-=5;
+	}
+
+	if(key=='w'){
+		lengan_l+=5;
+	}else if(key=='e'){
+		lengan_r+=5;
+	}else if(key=='s'){
+		lengan_l-=5;
+	}else if(key=='d'){
+		lengan_r-=5;
+	}
+
+	if(tangan_l>90){
+		tangan_l=90;
+	}else if(tangan_l<0){
+		tangan_l=0;
+	}
+	if(tangan_r>90){
+		tangan_r=90;
+	}else if(tangan_r<0){
+		tangan_r=0;
+	}
+	glutPostRedisplay();
+}
 
 // ----------------------------------------------------------
 // main() function
@@ -565,6 +623,7 @@ int main(int argc, char* argv[]){
   glutDisplayFunc(display);
   initGL();
   glutSpecialFunc(specialKeys);
+  glutKeyboardFunc(keyboard);
   //  Pass control to GLUT for events
   glutMainLoop();
 
