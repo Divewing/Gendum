@@ -21,7 +21,9 @@ double tangan_l=0;
 double tangan_r=0;
 double lengan_l=0;
 double lengan_r=0;
-
+double foward_r=0;
+double foward_l=0;
+int sw=0;
 void initGL() {
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 }; //parameter cahaya specular
 	GLfloat mat_shininess[] = { 100.0 }; //parameter shininess
@@ -122,105 +124,98 @@ void base(){
 
 }
 
-void feet(){
-
-	 	glPushMatrix();
-	 	glColor3f(1.0, 0.0, 0.0);
-	 	glTranslatef(0.2,0.05,-0.05);
-	 	glRotated(-15,0,1,0);
-	 	glScalef(1.5,0.7,3.0);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
-
-	 	glPushMatrix();
-	 	glColor3f(1.0, 0.0, 0.0);
-	 	glTranslatef(-0.2,0.05,-0.05);
-	 	glRotated(15,0,1,0);
-	 	glScalef(1.5,0.7,3.0);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
-
-	 	glPushMatrix();
-	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(0.195,0.1,-0.03);
-	 	glRotated(-15,0,1,0);
-	 	glScalef(1.5,0.7,2.5);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
-
-	 	glPushMatrix();
-	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(-0.195,0.1,-0.03);
-	 	glRotated(15,0,1,0);
-	 	glScalef(1.5,0.7,2.5);
-	 	glutSolidCube(0.1);
-	 	glPopMatrix();
-
-
-}
-
 void legs(){
-	//Leg_lower
+
+ 		glPushMatrix();
+ 		glTranslatef(0.0,0.85,0.0);
+ 		glRotatef(foward_l,1.0,0.0,0.0);
+ 		glTranslatef(0.0,-0.85,0.0);
 	 	glPushMatrix();
-	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(0.16,0.3,0.0);
-	 	glRotated(-25,0,1,0);
-	 	glRotated(4,0,0,1);
-	 	glScalef(1.2,3.3,1.5);
+	 	glColor3f(1.0, 0.0, 0.0);
+	 	glTranslatef(0.1,0.05,-0.05);
+	 	glScalef(1.5,0.7,3.0);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(-0.16,0.3,0.0);
-	 	glRotated(25,0,1,0);
-	 	glRotated(-4,0,0,1);
-	 	glScalef(1.2,3.3,1.5);
+	 	glTranslatef(0.1,0.1,-0.03);
+	 	glScalef(1.5,0.7,2.5);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
-	//Leg_joint
 	 	glPushMatrix();
-	 	glColor3f(0.2, 0.2, 0.2);
-	 	glTranslatef(0.14,0.5,0.0);
-	 	glRotated(-25,0,1,0);
-	 	glRotated(4,0,0,1);
-	 	glScalef(0.8,1.0,1.0);
+	 	glColor3f(1.0, 1.0, 1.0);
+	 	glTranslatef(0.1,0.3,0.0);
+	 	glScalef(1.2,3.5,1.5);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
 	 	glPushMatrix();
 	 	glColor3f(0.2, 0.2, 0.2);
-	 	glTranslatef(-0.14,0.5,0.0);
-	 	glRotated(25,0,1,0);
-	 	glRotated(-4,0,0,1);
+	 	glTranslatef(0.1,0.5,0.0);
 	 	glScalef(0.8,1.0,1.0);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
-	//Leg_upper
+
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(0.13,0.66,-0.01);
-	 	glRotated(-20,0,1,0);
-	 	glRotated(4,0,0,1);
-	 	glScalef(1.2,2.8,1.5);
+	 	glTranslatef(0.1,0.73,0.0);
+	 	glScalef(1.2,3.5,1.5);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+	 	glPopMatrix();
+
+//Right
+//Upper
+	 	glPushMatrix();
+	 	glTranslatef(0.0,0.85,0.0);
+	 	glRotatef(foward_r,1.0,0.0,0.0);
+	 	glTranslatef(0.0,-0.85,0.0);
+	 	glPushMatrix();
+	 	glColor3f(0.2, 0.2, 0.2);
+	 	glTranslatef(-0.1,0.5,0.0);
+	 	glScalef(0.8,1.0,1.0);
 	 	glutSolidCube(0.1);
 	 	glPopMatrix();
 
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
-	 	glTranslatef(-0.13,0.66,-0.01);
-	 	glRotated(20,0,1,0);
-	 	glRotated(-4,0,0,1);
-	 	glScalef(1.2,2.8,1.5);
+	 	glTranslatef(-0.1,0.73,-0.0);
+	 	glScalef(1.2,3.5,1.5);
 	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+
+
+//Lower
+
+	 	glPushMatrix();
+	 	glColor3f(1.0, 0.0, 0.0);
+	 	glTranslatef(-0.1,0.05,-0.05);
+	 	glScalef(1.5,0.7,3.0);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+
+	 	glPushMatrix();
+	 	glColor3f(1.0, 1.0, 1.0);
+	 	glTranslatef(-0.1,0.1,-0.03);
+	 	glScalef(1.5,0.7,2.5);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
+
+	 	glPushMatrix();
+	 	glColor3f(1.0, 1.0, 1.0);
+	 	glTranslatef(-0.1,0.3,0.0);
+	 	glScalef(1.2,3.5,1.5);
+	 	glutSolidCube(0.1);
+	 	glPopMatrix();
 	 	glPopMatrix();
 
 }
 
 void hips(){
-	//Hips
+//Hips
 	 	glPushMatrix();
 	 	glColor3f(1.0, 1.0, 1.0);
 	 	glTranslatef(0.0,0.9,0.0);
@@ -531,7 +526,6 @@ void display(){
   // glScalef( 2.0, 2.0, 0.0 );          // Not included
 
 helper();
-feet();
 legs();
 hips();
 torso();
@@ -587,6 +581,25 @@ void keyboard(unsigned char key, int x, int y){
 		lengan_l-=5;
 	}else if(key=='d'){
 		lengan_r-=5;
+	}
+
+	if(key=='i'){
+		if((foward_r==25)&&(foward_l==-25)){
+			sw=1;
+		}else if((foward_r==-25)&&(foward_l==25)){
+			sw=0;
+		}
+		if(sw==0){
+			foward_r+=5;
+			foward_l-=5;
+			lengan_l+=5;
+			lengan_r-=5;
+		}else if(sw==1){
+			foward_r-=5;
+			foward_l+=5;
+			lengan_l-=5;
+			lengan_r+=5;
+		}
 	}
 
 	if(tangan_l>90){
